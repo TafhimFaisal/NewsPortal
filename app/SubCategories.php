@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\categories;
 
 class SubCategories extends Model
 {
@@ -13,4 +14,9 @@ class SubCategories extends Model
         'name_bangla',
         'category_id'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Categories::Class);
+    }
 }

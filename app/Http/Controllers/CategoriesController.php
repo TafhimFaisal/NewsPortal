@@ -15,9 +15,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Categories::All();
-        return response()->json([
-            'categories'=>$categories
-        ],200);
+        return view('category.index',compact('categories'));
     }
 
     /**
@@ -38,7 +36,10 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Categories::create([$request]);
+        $message = trans('message.success.default.store');
+
+    
     }
 
     /**

@@ -5,7 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class images extends Model
+
+class Images extends Model
 {
     use SoftDeletes;
     private $filable = [
@@ -19,4 +20,9 @@ class images extends Model
         
         'photo_feature_id'
     ];
+
+    public function photoFeature()
+    {
+        return $this->belongsTo(PhotoFeature::Class,'photo_feature_id');
+    }
 }

@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Categories;
+use App\SubCategories;
 
 class News extends Model
 {
@@ -24,5 +26,13 @@ class News extends Model
         'tags'
 
     ];
-    //
+
+    public function category()
+    {
+        return $this->belongsTo(Categories::Class,'category_id');
+    }
+    public function subCategory()
+    {
+        return $this->belongsTo(SubCategories::Class,'sub_category_id');
+    }
 }
