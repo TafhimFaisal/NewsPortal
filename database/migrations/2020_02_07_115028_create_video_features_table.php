@@ -15,9 +15,13 @@ class CreateVideoFeaturesTable extends Migration
     {
         Schema::create('video_features', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('video_features_head_line');
-            $table->string('video_features_video_link');
-            $table->string('video_features_video_discription');
+
+            $table->string('video_features_head_line_english');
+            $table->string('video_features_video_link_bangla')->nullable();
+
+            $table->text('video_features_video_discription_english');
+            $table->text('video_features_video_discription_bangla')->nullable();
+            $table->text('tags')->nullable();
             
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('sub_category_id');

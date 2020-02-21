@@ -15,9 +15,15 @@ class CreatePhotoFeaturesTable extends Migration
     {
         Schema::create('photo_features', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('photo_features_head_line');
-            $table->string('photo_features_image_source')->nullable();
-            $table->string('photo_features_discription')->nullable();
+
+            $table->string('photo_features_head_line_english');
+            $table->string('photo_features_head_line_bangla')->nullable();
+
+            $table->text('photo_features_image_source')->nullable();
+
+            $table->text('photo_features_description_english')->nullable();
+            $table->text('photo_features_description_bangla')->nullable();
+            $table->text('tags')->nullable();
             
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('sub_category_id');
